@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Expences from "./Components/Expenses/Expences";
+// import expenses from "./Components/expences.json"
 
 const App = ()=>{
 
