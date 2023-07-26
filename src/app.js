@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Expences from "./Components/Expenses/Expences";
-// import expenses from "./Components/expences.json"
+// import expense from "./Components/expences.json"
 
 const App = ()=>{
 
@@ -30,7 +30,7 @@ const App = ()=>{
       amount: 200,
       date: new Date(2023, 7, 18)
     }
-  ];
+  ];  
 
   return (
     <div>
