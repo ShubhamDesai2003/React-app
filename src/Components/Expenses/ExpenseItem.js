@@ -8,12 +8,17 @@ import Nest from './nest';
 
 const ExpenseItem = (props) =>{
 
+    const [NewTitle, setNewTitle] = useState("hi");
     
 
     const [title, setTitle] = useState(props.title);
 
     const clickHandler = ()=>{
-        setTitle('New Title');
+        setTitle(NewTitle);
+    }
+
+    const changeHandler = (event)=>{
+        setNewTitle(event.target.value);
     }
 
     return (
@@ -24,6 +29,7 @@ const ExpenseItem = (props) =>{
                 <h2>{title}</h2>
                 <div className='expense-item__price'>${props.amount}</div>
             </Nest>
+            <input type='text' value={NewTitle} onChange={ changeHandler }></input>
             <button onClick={clickHandler}>Change Title</button>
         </Card>
     );
