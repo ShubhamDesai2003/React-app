@@ -15,26 +15,40 @@ const App = ()=>{
 
   const [expenses, setExpenses] = useState(expense);
 
+
   // To get data (FETCH API)
+  const fetchData = ()=>{
+
+    fetch('#GIT').then(
+      response =>{
+        return response.json();
+      }
+    ).then(
+      data =>{
+        // console.log(data);
+        setExpenses(data);
+      }
+    );
+  }
 
   useEffect(()=>{
-    
-      fetch('#').then(
-        response =>{
-          return response.json();
-        }
-      ).then(
-        data =>{
-          // console.log(data);
-          setExpenses(data);
-        }
-      );
-
+    fetchData();
   },[]);
 
+
+  // To post data (FETCH API)
   const addExpenseHandler = (expense)=>{
-    const updatedExpense = [expense, ...expenses];
-    setExpenses(updatedExpense);
+    fetch('https POST',{
+      method:'POST',
+      body: JSON.stringify(expense),
+      headers: {
+        'content-Type' : 'application/json'
+      }
+    }).then(
+      response =>{
+        fetchData();
+      }
+    );
   }
 
   return (
