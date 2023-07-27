@@ -10,10 +10,11 @@ const Expences = (props) =>{
     <Card className="expenses">
 
       {
+        // Tis will run in loop
         props.item.map(
           expense =>(
-
             <ExpenseItem
+            key={ expense.id}
             date={expense.date}
             title={expense.title}
             amount={expense.amount}

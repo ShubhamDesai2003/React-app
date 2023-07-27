@@ -1,13 +1,13 @@
 [
     {
       "id": "e1",
-      "title": "School Fee",
+      "title": "School Fees",
       "amount": 250,
-      "date": "2023-08-20"    
+      "date": "2023-08-2"    
     },
     {
       "id": "e2",
-      "title": "Books",
+      "title": "Book",
       "amount": 230,
       "date": "2023-08-20T00:00:00.000Z"
     },
