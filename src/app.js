@@ -3,9 +3,9 @@ import React,  { useState, useEffect } from 'react';
 import NewExpense from './Components/NewExpense/NewExpense';
 
 import Expences from "./Components/Expenses/Expences";
-import expense from "./Components/expences.json";
+import json from "./Components/expences.json";
 
-
+// For data object
 // let DUMY_EXPENSE = [];  
 
 
@@ -13,43 +13,49 @@ const App = ()=>{
 
   // const [expenses, setExpenses] = useState(DUMY_EXPENSE);
 
-  const [expenses, setExpenses] = useState(expense);
+  const [expenses, setExpenses] = useState(json);
 
 
   // To get data (FETCH API)
-  const fetchData = ()=>{
+  // const fetchData = ()=>{
 
-    fetch('#GIT').then(
-      response =>{
-        return response.json();
-      }
-    ).then(
-      data =>{
-        // console.log(data);
-        setExpenses(data);
-      }
-    );
-  }
+  //   fetch('#GIT').then(
+  //     response =>{
+  //       return response.json();
+  //     }
+  //   ).then(
+  //     data =>{
+  //       // console.log(data);
+  //       setExpenses(data);
+  //     }
+  //   );
+  // }
 
-  useEffect(()=>{
-    fetchData();
-  },[]);
+  // useEffect(()=>{
+  //   fetchData();
+  // },[]);
 
 
   // To post data (FETCH API)
+  // const addExpenseHandler = (expense)=>{
+  //   fetch('https POST',{
+  //     method:'POST',
+  //     body: JSON.stringify(expense),
+  //     headers: {
+  //       'content-Type' : 'application/json'
+  //     }
+  //   }).then(
+  //     response =>{
+  //       fetchData();
+  //     }
+  //   );
+  // }
+
   const addExpenseHandler = (expense)=>{
-    fetch('https POST',{
-      method:'POST',
-      body: JSON.stringify(expense),
-      headers: {
-        'content-Type' : 'application/json'
-      }
-    }).then(
-      response =>{
-        fetchData();
-      }
-    );
+    const updatedExpense = [expense, ...expenses];
+    setExpenses(updatedExpense);
   }
+
 
   return (
     <div>
